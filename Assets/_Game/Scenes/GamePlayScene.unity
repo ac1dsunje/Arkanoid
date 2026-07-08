@@ -275,9 +275,12 @@ MonoBehaviour:
   _bordersSpawner: {fileID: 990206346}
   _borderWidth: 0.2
   _platformPrefab: {fileID: 682399931271419854, guid: 4165bf8fc3c376a478d2038bcf2c2056, type: 3}
-  _moveSpeed: 2
+  _moveSpeed: 2.5
   _ballPrefab: {fileID: 7668233013022811955, guid: 7f571adae8ff3d44da2437bbe67cf3cc, type: 3}
-  _blockPrefab: {fileID: 1178097682818578480, guid: 60904c9b7779b564bafc64a67ab1d413, type: 3}
+  _blockPrefabs:
+  - {fileID: 1178097682818578480, guid: 60904c9b7779b564bafc64a67ab1d413, type: 3}
+  - {fileID: 1178097682818578480, guid: 19f3dcf2e2a27414f9c32c92dc56cff9, type: 3}
+  - {fileID: 1178097682818578480, guid: 903ea0956e7d8a34eab0ebe8b396f93c, type: 3}
   _blocksSpawner: {fileID: 990206347}
   _blockSize: 0.2
 --- !u!114 &990206346

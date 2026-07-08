@@ -19,7 +19,7 @@ namespace _Game.Scripts
         [SerializeField] private GameObject _ballPrefab;
         
         [Header("Blocks")]
-        [SerializeField] private GameObject _blockPrefab;
+        [SerializeField] private GameObject[] _blockPrefabs;
         [SerializeField] private BlocksSpawner _blocksSpawner;
         [SerializeField] private float _blockSize = 0.2f;
 
@@ -39,7 +39,7 @@ namespace _Game.Scripts
             float borderCenterX = halfBlocksWidth + (_borderWidth / 2f);
 
             _bordersSpawner.Construct(_bordersSpawnerConfig, borderCenterX, camHeight);
-            _blocksSpawner.Construct(_blockPrefab, blockPairs, camHeight, _blockSize);
+            _blocksSpawner.Construct(_blockPrefabs, blockPairs, camHeight, _blockSize);
             
             CreatePlatform();
             CreateBall();
