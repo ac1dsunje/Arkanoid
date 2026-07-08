@@ -4,7 +4,7 @@ namespace _Game.Scripts
 {
 public class PlatformController : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed = 5f;
+    [SerializeField] private float _moveSpeed = 1f;
 
     private Rigidbody2D _rb;
     
