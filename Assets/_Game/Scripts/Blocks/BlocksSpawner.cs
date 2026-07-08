@@ -6,6 +6,7 @@ namespace _Game.Scripts.Blocks
 public class BlocksSpawner: MonoBehaviour
 {
     private readonly List<Vector2> _blocks = new();
+    private readonly int _rows = 4;
 
     public void Construct(GameObject[] blockPrefabs, int blockPairs, float height, float size)
     {
@@ -15,11 +16,11 @@ public class BlocksSpawner: MonoBehaviour
 
     private void CreateMesh(int blockPairs, float height, float size)
     {
-        for (var iy = size; iy < size*4; iy += size)
+        for (var iy = size; iy < size * _rows; iy += size)
         {
-            for (int i = 0; i < blockPairs; i++)
+            for (var i = 0; i < blockPairs; i++)
             {
-                float ix = i * size + size / 2f;
+                var ix = i * size + size / 2f;
                     
                 _blocks.Add(new Vector2(-ix, height - iy));
                 _blocks.Add(new Vector2(ix, height - iy));

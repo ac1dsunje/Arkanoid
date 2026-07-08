@@ -17,7 +17,7 @@ public class BordersSpawner: MonoBehaviour
         CreateSideBorder(borderCenterX, height * 2);
         CreateSideBorder(-borderCenterX, height * 2);
 
-        float horizontalWidth = borderCenterX * 2;
+        var horizontalWidth = borderCenterX * 2;
         CreateUpperBorder(horizontalWidth, height);
         CreateLowerBorder(horizontalWidth, -height);
     }
