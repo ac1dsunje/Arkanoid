@@ -4,14 +4,15 @@ namespace _Game.Scripts
 {
 public class PlatformController : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed = 1f;
-    [SerializeField] private Transform _ballSpawnPoint;
-
-    public Transform BallSpawnPoint => _ballSpawnPoint;
-
     private Rigidbody2D _rb;
-    
+    private float _moveSpeed;
     private float _velocity;
+
+    public PlatformController Construct(float moveSpeed)
+    {
+        _moveSpeed = moveSpeed;
+        return this;
+    }
     
     private void Awake()
     {

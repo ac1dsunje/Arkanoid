@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 2449074972668808944}
   - component: {fileID: 5478270449701884705}
   - component: {fileID: 3269186424114834990}
+  - component: {fileID: 6304965180922071116}
   m_Layer: 0
   m_Name: DownBorder
-  m_TagString: DownBorder
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,3 +139,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6304965180922071116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7287666392168305600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80bb3bb785b841e8abb9d6c3ba9a9bd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Borders.DownBorderController

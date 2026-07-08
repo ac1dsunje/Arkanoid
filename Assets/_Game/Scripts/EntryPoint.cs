@@ -6,32 +6,33 @@ namespace _Game.Scripts
 public class EntryPoint: MonoBehaviour
 {
     [SerializeField] private GameObject _platformPrefab;
-    [SerializeField] private CameraController _cam;
+    [SerializeField] private CameraController _cameraController;
     [SerializeField] private BordersSpawnerConfig _bordersSpawnerConfig;
     [SerializeField] private BordersSpawner _bordersSpawner;
     [SerializeField] private GameObject _ballPrefab;
+    [SerializeField] private float _moveSpeed = 1f;
 
     private PlatformController _platform;
 
     private void Awake()
     {
-        _bordersSpawner.Construct(_bordersSpawnerConfig, _cam.GetWidth(), _cam.GetHeight());
+        _bordersSpawner.Construct(_bordersSpawnerConfig, _cameraController.GetWidth(), _cameraController.GetHeight());
         CreatePlatform();
         CreateBall();
     }
 
     private void CreatePlatform()
     {
-        _platform = Instantiate(_platformPrefab, new Vector2(0, -_cam.GetHeight() + 1f), Quaternion.identity)
-            .GetComponent<PlatformController>();
+        _platform = Instantiate(_platformPrefab, new Vector2(0, -_cameraController.GetHeight() + 1f), Quaternion.identity)
+            .GetComponent<PlatformController>().Construct(_moveSpeed);
     }
 
     private void CreateBall()
     {
-        Instantiate(
-            _ballPrefab, 
-            new Vector2(_platform.BallSpawnPoint.position.x, _platform.BallSpawnPoint.position.y),
-            Quaternion.identity, _platform.BallSpawnPoint);
+        var ball = Instantiate(
+                _ballPrefab, 
+                new Vector2(_platform.transform.position.x, _platform.transform.position.y+0.2f), 
+                Quaternion.identity, _platform.transform);
     }
     
 }
