@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 626813579787338235}
   - component: {fileID: 7629802689526243163}
   - component: {fileID: 6988096666597768601}
+  - component: {fileID: -8962500267889408175}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -108,7 +109,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 41ec35f84e81b224e86e1644ee6dc190, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -156,3 +157,15 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.1}
   m_Radius: 0.1
+--- !u!114 &-8962500267889408175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7668233013022811955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2afe29559270423083d44b839554ab38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.BallController

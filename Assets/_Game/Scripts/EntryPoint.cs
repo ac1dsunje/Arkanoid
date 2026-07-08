@@ -13,6 +13,7 @@ public class EntryPoint: MonoBehaviour
     [SerializeField] private float _moveSpeed = 1f;
 
     private PlatformController _platform;
+    private BallController _ball;
 
     private void Awake()
     {
@@ -29,10 +30,12 @@ public class EntryPoint: MonoBehaviour
 
     private void CreateBall()
     {
-        var ball = Instantiate(
+        var ballObj = Instantiate(
                 _ballPrefab, 
                 new Vector2(_platform.transform.position.x, _platform.transform.position.y+0.2f), 
-                Quaternion.identity, _platform.transform);
+                Quaternion.identity);
+
+        _ball = ballObj.GetComponent<BallController>().AttachTo(_platform.transform);
     }
     
 }
