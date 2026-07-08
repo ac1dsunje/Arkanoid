@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 940ebab3660825f4a9b9a1b4f1e14b58
+guid: cd3edb6c09b03ab44a839cdf92119aad
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -102,7 +102,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639191454510071011
+  platformSettingsDirtyTick: 639191454462817308
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -127,7 +127,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: ball
+  - name: block1
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -139,7 +139,7 @@ ScriptedImporter:
       y: 4
       width: 20
       height: 20
-    spriteID: 1ff722488754d5042b431691ee87512a
+    spriteID: d529b8ac59cb1084da32f4b703c5940d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,17 +153,17 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 405904531
+      value0: 887672490
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: ball
+    name: block1
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: ball
+    - name: block1
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -171,7 +171,7 @@ ScriptedImporter:
         y: 0
         width: 20
         height: 20
-      spriteId: 1ff722488754d5042b431691ee87512a
+      spriteId: d529b8ac59cb1084da32f4b703c5940d
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
