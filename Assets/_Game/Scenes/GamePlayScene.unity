@@ -234,6 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 990206344}
   - component: {fileID: 990206345}
+  - component: {fileID: 990206346}
   m_Layer: 0
   m_Name: EntryPoint
   m_TagString: Untagged
@@ -269,10 +270,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.EntryPoint
   _platformPrefab: {fileID: 682399931271419854, guid: 4165bf8fc3c376a478d2038bcf2c2056, type: 3}
-  _spawnPoint: {x: 0, y: 0}
-  _borderPrefab: {fileID: 5329297524932760236, guid: 0212f3d45584cea489a80e2cee081b6a, type: 3}
-  _xOffset: 5
-  _cam: {fileID: 0}
+  _cam: {fileID: 519420033}
+  _bordersSpawnerConfig: {fileID: 11400000, guid: 320a20a632ce5a24186e470d7e5ed013, type: 2}
+  _bordersSpawner: {fileID: 990206346}
+--- !u!114 &990206346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990206343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a01202a85e44e78f595df45ac7dfe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.BordersSpawner
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 358ff8c627c5414baff111bbf0cc4697, type: 3}
+  m_Name: BordersSpawnerConfig
+  m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Borders.BordersSpawnerConfig
+  <BorderSidePrefab>k__BackingField: {fileID: 5329297524932760236, guid: 0212f3d45584cea489a80e2cee081b6a, type: 3}
+  <BorderDownPrefab>k__BackingField: {fileID: 7287666392168305600, guid: 6083885785454db45b2dec5bb190d183, type: 3}
+  <BorderUpPrefab>k__BackingField: {fileID: 2211887153606800914, guid: af520014ff52e9448b615eaa12e96b73, type: 3}
+  <BorderWidth>k__BackingField: 0.2

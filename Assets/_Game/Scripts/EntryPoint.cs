@@ -1,33 +1,19 @@
-﻿using UnityEngine;
+﻿using _Game.Scripts.Borders;
+using UnityEngine;
 
 namespace _Game.Scripts
 {
 public class EntryPoint: MonoBehaviour
 {
     [SerializeField] private GameObject _platformPrefab;
-    [SerializeField] private GameObject _borderPrefab;
     [SerializeField] private CameraController _cam;
+    [SerializeField] private BordersSpawnerConfig _bordersSpawnerConfig;
+    [SerializeField] private BordersSpawner _bordersSpawner;
 
     private void Awake()
     {
-        CreateBorders();
+        _bordersSpawner.Construct(_bordersSpawnerConfig, _cam.GetWidth(), _cam.GetHeight());
         CreatePlatform();
-    }
-
-    private void CreateBorders()
-    {
-        var xOffset = _cam.GetWidth();
-        var yScale = _cam.GetHeight() * 2;
-
-        CreateBorder(xOffset, yScale);
-        CreateBorder(-xOffset, yScale);
-    }
-
-    private void CreateBorder(float xOffset, float yScale)
-    {
-        var border = Instantiate(_borderPrefab, new Vector2(xOffset, 0), Quaternion.identity)
-            .GetComponent<Transform>();
-        border.localScale = new(border.localScale.x, yScale, border.localScale.z);
     }
 
     private void CreatePlatform()
