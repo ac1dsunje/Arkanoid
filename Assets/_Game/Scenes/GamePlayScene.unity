@@ -367,9 +367,9 @@ MonoBehaviour:
   _ballPrefab: {fileID: 7668233013022811955, guid: 7f571adae8ff3d44da2437bbe67cf3cc, type: 3}
   _ballSpeed: 5
   _blockPrefabs:
-  - {fileID: 1178097682818578480, guid: 60904c9b7779b564bafc64a67ab1d413, type: 3}
-  - {fileID: 1178097682818578480, guid: 19f3dcf2e2a27414f9c32c92dc56cff9, type: 3}
-  - {fileID: 1178097682818578480, guid: 903ea0956e7d8a34eab0ebe8b396f93c, type: 3}
+  - {fileID: 318205486301382823, guid: 4a0a1205cf78d9b488cbc2e1e922e5cf, type: 3}
+  - {fileID: 819481327844136205, guid: 3c0ac894d0607ef4789b3be5c0013ff2, type: 3}
+  - {fileID: 5587500574708242077, guid: 92ec880d54c62634d902038c135e27ba, type: 3}
   _blocksSpawner: {fileID: 781184992}
   _blockSize: 0.2
 --- !u!1660057539 &9223372036854775807
