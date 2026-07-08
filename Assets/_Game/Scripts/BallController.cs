@@ -5,6 +5,7 @@ namespace _Game.Scripts
 public class BallController : MonoBehaviour
 {
     private Rigidbody2D _rb;
+    private float _speed;
 
     private void Awake()
     {
@@ -12,25 +13,26 @@ public class BallController : MonoBehaviour
         _rb.bodyType = RigidbodyType2D.Kinematic;
     }
 
-    public BallController AttachTo(Transform parent)
+    public void Construct(Transform parent, float speed)
     {
         transform.SetParent(parent);
-        return this;
+        _speed  = speed;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && transform.parent)
         {
             Release();
         }
+        
     }
 
     private void Release()
     {
         transform.SetParent(null);
         _rb.bodyType = RigidbodyType2D.Dynamic;
-        _rb.AddForce(new Vector2(0, 5f), ForceMode2D.Impulse);
+        _rb.AddForce(new Vector2(0, _speed), ForceMode2D.Impulse);
     }
 }
 }

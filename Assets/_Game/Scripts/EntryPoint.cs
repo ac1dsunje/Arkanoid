@@ -17,6 +17,7 @@ namespace _Game.Scripts
         
         [Header("Ball")]
         [SerializeField] private GameObject _ballPrefab;
+        [SerializeField] private float _ballSpeed = 5f;
         
         [Header("Blocks")]
         [SerializeField] private GameObject[] _blockPrefabs;
@@ -24,25 +25,30 @@ namespace _Game.Scripts
         [SerializeField] private float _blockSize = 0.2f;
 
         private PlatformController _platform;
-        private BallController _ball;
 
         private void Awake()
         {
-            float camHeight = _cameraController.GetHeight();
-            float camWidth = _cameraController.GetWidth();
+            var camHeight = _cameraController.GetHeight();
 
-            float availableWidth = camWidth - (2 * _borderWidth);
-            int blockPairs = Mathf.FloorToInt(availableWidth / (2 * _blockSize));
-            blockPairs = Mathf.Max(0, blockPairs);
-
-            float halfBlocksWidth = blockPairs * _blockSize;
-            float borderCenterX = halfBlocksWidth + (_borderWidth / 2f);
+            var blockPairs = GetBlockPairs(_cameraController.GetWidth(), _borderWidth, _blockSize);
+            var borderCenterX = GetBorderCenterX(blockPairs, _blockSize, _borderWidth);
 
             _bordersSpawner.Construct(_bordersSpawnerConfig, borderCenterX, camHeight);
             _blocksSpawner.Construct(_blockPrefabs, blockPairs, camHeight, _blockSize);
             
             CreatePlatform();
             CreateBall();
+        }
+
+        private int GetBlockPairs(float camWidth, float borderWidth, float blockSize)
+        {
+            var availableWidth = camWidth - (2 * borderWidth);
+            return Mathf.FloorToInt(availableWidth / (2 * blockSize));
+        }
+
+        private float GetBorderCenterX(int blockPairs, float blockSize, float borderWidth)
+        {
+            return blockPairs * blockSize + (borderWidth / 2f);
         }
 
         private void CreatePlatform()
@@ -53,12 +59,9 @@ namespace _Game.Scripts
 
         private void CreateBall()
         {
-            var ballObj = Instantiate(
-                    _ballPrefab, 
+            Instantiate(_ballPrefab, 
                     new Vector2(_platform.transform.position.x, _platform.transform.position.y + 0.2f), 
-                    Quaternion.identity);
-
-            _ball = ballObj.GetComponent<BallController>().AttachTo(_platform.transform);
+                    Quaternion.identity).GetComponent<BallController>().Construct(_platform.transform, _ballSpeed);
         }
     }
 }
