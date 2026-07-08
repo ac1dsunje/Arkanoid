@@ -11,7 +11,7 @@ public class EntryPoint: MonoBehaviour
     [SerializeField] private BordersSpawner _bordersSpawner;
     [SerializeField] private GameObject _ballPrefab;
 
-    private Transform _platform;
+    private PlatformController _platform;
 
     private void Awake()
     {
@@ -23,12 +23,16 @@ public class EntryPoint: MonoBehaviour
     private void CreatePlatform()
     {
         _platform = Instantiate(_platformPrefab, new Vector2(0, -_cam.GetHeight() + 1f), Quaternion.identity)
-            .GetComponent<Transform>();
+            .GetComponent<PlatformController>();
     }
 
     private void CreateBall()
     {
-        Instantiate(_ballPrefab, new Vector2(0, _platform.position.y + 1f), Quaternion.identity);
+        Instantiate(
+            _ballPrefab, 
+            new Vector2(_platform.BallSpawnPoint.position.x, _platform.BallSpawnPoint.position.y),
+            Quaternion.identity, _platform.BallSpawnPoint);
     }
+    
 }
 }
