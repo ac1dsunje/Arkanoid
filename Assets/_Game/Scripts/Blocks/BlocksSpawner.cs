@@ -38,7 +38,7 @@ public class BlocksSpawner: MonoBehaviour
     private void CreateBlock(GameObject[] blockPrefabs, Vector2 pos, float scaleSize)
     {
         var blockPrefab = blockPrefabs[Random.Range(0, blockPrefabs.Length)];
-        var block = Instantiate(blockPrefab, pos, Quaternion.identity);
+        var block = Instantiate(blockPrefab, pos, Quaternion.identity, transform);
         block.transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
     }
 }

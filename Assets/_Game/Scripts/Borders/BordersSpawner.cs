@@ -45,7 +45,7 @@ public class BordersSpawner: MonoBehaviour
 
     private void CreateBorder(GameObject prefab, Vector2 pos, Vector3 scale)
     {
-        var border = Instantiate(prefab, pos, Quaternion.identity).GetComponent<Transform>();
+        var border = Instantiate(prefab, pos, Quaternion.identity, transform).GetComponent<Transform>();
         border.localScale = scale;
     }
 }
