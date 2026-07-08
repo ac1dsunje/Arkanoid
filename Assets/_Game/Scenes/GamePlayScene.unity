@@ -273,6 +273,7 @@ MonoBehaviour:
   _cam: {fileID: 519420033}
   _bordersSpawnerConfig: {fileID: 11400000, guid: 320a20a632ce5a24186e470d7e5ed013, type: 2}
   _bordersSpawner: {fileID: 990206346}
+  _ballPrefab: {fileID: 7668233013022811955, guid: 7f571adae8ff3d44da2437bbe67cf3cc, type: 3}
 --- !u!114 &990206346
 MonoBehaviour:
   m_ObjectHideFlags: 0
