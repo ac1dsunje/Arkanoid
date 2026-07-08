@@ -5,9 +5,8 @@ namespace _Game.Scripts
 public class EntryPoint: MonoBehaviour
 {
     [SerializeField] private GameObject _platformPrefab;
-    [SerializeField] private Vector2 _spawnPoint;
     [SerializeField] private GameObject _borderPrefab;
-    [SerializeField] private float _xOffset = 5f;
+    [SerializeField] private CameraController _cam;
 
     private void Awake()
     {
@@ -17,13 +16,23 @@ public class EntryPoint: MonoBehaviour
 
     private void CreateBorders()
     {
-        Instantiate(_borderPrefab, new Vector2(_spawnPoint.x + _xOffset, _spawnPoint.y), Quaternion.identity);
-        Instantiate(_borderPrefab, new Vector2(_spawnPoint.x - _xOffset, _spawnPoint.y), Quaternion.identity);
+        var xOffset = _cam.GetWidth();
+        var yScale = _cam.GetHeight() * 2;
+
+        CreateBorder(xOffset, yScale);
+        CreateBorder(-xOffset, yScale);
+    }
+
+    private void CreateBorder(float xOffset, float yScale)
+    {
+        var border = Instantiate(_borderPrefab, new Vector2(xOffset, 0), Quaternion.identity)
+            .GetComponent<Transform>();
+        border.localScale = new(border.localScale.x, yScale, border.localScale.z);
     }
 
     private void CreatePlatform()
     {
-        Instantiate(_platformPrefab, _spawnPoint, Quaternion.identity);
+        Instantiate(_platformPrefab, new Vector2(0, -_cam.GetHeight() + 1f), Quaternion.identity);
     }
 }
 }
