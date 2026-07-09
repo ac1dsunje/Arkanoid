@@ -4,8 +4,8 @@ namespace _Game.Scripts
 {
 public class BallController : MonoBehaviour
 {
+    [SerializeField] private float _speed = 5f;
     private Rigidbody2D _rb;
-    private float _speed;
 
     private void Awake()
     {
@@ -13,10 +13,12 @@ public class BallController : MonoBehaviour
         _rb.bodyType = RigidbodyType2D.Kinematic;
     }
 
-    public void Construct(Transform parent, float speed)
+    public void Construct(Transform platform)
     {
-        transform.SetParent(parent);
-        _speed  = speed;
+        transform.position = new Vector2(platform.position.x, 
+            platform.position.y + platform.transform.localScale.y/2f + transform.localScale.y/2f);
+        
+        transform.SetParent(platform);
     }
 
     private void Update()

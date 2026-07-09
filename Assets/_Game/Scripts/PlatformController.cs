@@ -4,14 +4,13 @@ namespace _Game.Scripts
 {
 public class PlatformController : MonoBehaviour
 {
+    [SerializeField] private float _moveSpeed = 2.5f;
     private Rigidbody2D _rb;
-    private float _moveSpeed;
     private float _velocity;
 
-    public PlatformController Construct(float moveSpeed)
+    public void Construct(Vector2 startPosition)
     {
-        _moveSpeed = moveSpeed;
-        return this;
+        transform.position = startPosition;
     }
     
     private void Awake()

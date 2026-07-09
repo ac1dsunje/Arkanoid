@@ -12,25 +12,22 @@ namespace _Game.Scripts
         [SerializeField] private float _borderWidth = 0.2f;
         
         [Header("Platform")]
-        [SerializeField] private GameObject _platformPrefab;
-        [SerializeField] private float _moveSpeed = 1f;
+        [SerializeField] private PlatformController _platform;
         
         [Header("Ball")]
-        [SerializeField] private GameObject _ballPrefab;
-        [SerializeField] private float _ballSpeed = 5f;
+        [SerializeField] private BallController _ball;
         
         [Header("Blocks")]
         [SerializeField] private GameObject[] _blockPrefabs;
         [SerializeField] private BlocksSpawner _blocksSpawner;
         [SerializeField] private float _blockSize = 0.2f;
 
-        private PlatformController _platform;
-
         private void Awake()
         {
+            var camWidth = _cameraController.GetWidth();
             var camHeight = _cameraController.GetHeight();
 
-            var blockPairs = GetBlockPairs(_cameraController.GetWidth(), _borderWidth, _blockSize);
+            var blockPairs = GetBlockPairs(camWidth, _borderWidth, _blockSize);
             var borderCenterX = GetBorderCenterX(blockPairs, _blockSize, _borderWidth);
 
             _bordersSpawner.Construct(_bordersSpawnerConfig, borderCenterX, camHeight);
@@ -53,15 +50,13 @@ namespace _Game.Scripts
 
         private void CreatePlatform()
         {
-            _platform = Instantiate(_platformPrefab, new Vector2(0, -_cameraController.GetHeight() + 1f), Quaternion.identity)
-                .GetComponent<PlatformController>().Construct(_moveSpeed);
+            var startPosition = new Vector2(0, -_cameraController.GetHeight() + 1f);
+            _platform.Construct(startPosition);
         }
 
         private void CreateBall()
         {
-            Instantiate(_ballPrefab, 
-                    new Vector2(_platform.transform.position.x, _platform.transform.position.y + 0.2f), 
-                    Quaternion.identity).GetComponent<BallController>().Construct(_platform.transform, _ballSpeed);
+            _ball.Construct(_platform.transform);
         }
     }
 }
