@@ -13,7 +13,6 @@ namespace _Game.Scripts
         
         [Header("Platform")]
         [SerializeField] private PlatformController _platform;
-        [SerializeField] private float _platformSpawnOffset = 1f;
         
         [Header("Ball")]
         [SerializeField] private BallController _ball;
@@ -30,8 +29,7 @@ namespace _Game.Scripts
             _bordersSpawner.Construct(_bordersSpawnerConfig, coordinator.BorderCenterX, _cam.Height);
             _blocksSpawner.Construct(_blockPrefabs, coordinator.BlockPairs, _cam.Height, _blockSize);
             
-            var startPosition = new Vector2(0, -_cam.Height + _platformSpawnOffset);
-            _platform.Construct(startPosition);
+            _platform.Construct(_cam.Height);
             
             _ball.Construct(_platform.transform);
         }
