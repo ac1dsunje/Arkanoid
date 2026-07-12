@@ -33,8 +33,10 @@ namespace _Game.Scripts
             _bordersSpawner.Construct(_bordersSpawnerConfig, borderCenterX, camHeight);
             _blocksSpawner.Construct(_blockPrefabs, blockPairs, camHeight, _blockSize);
             
-            CreatePlatform();
-            CreateBall();
+            var startPosition = new Vector2(0, -camHeight + 1f);
+            _platform.Construct(startPosition);
+            
+            _ball.Construct(_platform.transform);
         }
 
         private int GetBlockPairs(float camWidth, float borderWidth, float blockSize)
@@ -46,17 +48,6 @@ namespace _Game.Scripts
         private float GetBorderCenterX(int blockPairs, float blockSize, float borderWidth)
         {
             return blockPairs * blockSize + (borderWidth / 2f);
-        }
-
-        private void CreatePlatform()
-        {
-            var startPosition = new Vector2(0, -_cameraController.GetHeight() + 1f);
-            _platform.Construct(startPosition);
-        }
-
-        private void CreateBall()
-        {
-            _ball.Construct(_platform.transform);
         }
     }
 }
