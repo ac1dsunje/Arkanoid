@@ -6,12 +6,14 @@ namespace _Game.Scripts.Blocks
 public class BlocksSpawner: MonoBehaviour
 {
     [SerializeField] private int _rows = 4;
-    private readonly List<Vector2> _blocks = new();
+    private readonly List<Vector2> _blocksPos = new();
+    private BlockFactory _factory;
 
-    public void Construct(GameObject[] blockPrefabs, int blockPairs, float height, float size)
+    public void Construct(int blockPairs, float height, float size, BlockFactory factory)
     {
+        _factory = factory;
         CreateMesh(blockPairs, height - size, size);
-        CreateBlocks(blockPrefabs, size);
+        CreateBlocks();
     }
 
     private void CreateMesh(int blockPairs, float height, float size)
@@ -22,25 +24,18 @@ public class BlocksSpawner: MonoBehaviour
             {
                 var ix = i * size + size / 2f;
                     
-                _blocks.Add(new Vector2(-ix, height - iy));
-                _blocks.Add(new Vector2(ix, height - iy));
+                _blocksPos.Add(new Vector2(-ix, height - iy));
+                _blocksPos.Add(new Vector2(ix, height - iy));
             }
         }
     }
 
-    private void CreateBlocks(GameObject[] blockPrefabs, float size)
+    private void CreateBlocks()
     {
-        foreach (var block in _blocks)
+        foreach (var blockPos in _blocksPos)
         {
-            CreateBlock(blockPrefabs, block, size);
+            _factory.Get(blockPos, transform);
         }
-    }
-
-    private void CreateBlock(GameObject[] blockPrefabs, Vector2 pos, float scaleSize)
-    {
-        var blockPrefab = blockPrefabs[Random.Range(0, blockPrefabs.Length)];
-        var block = Instantiate(blockPrefab, pos, Quaternion.identity, transform);
-        block.transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
     }
 }
 }

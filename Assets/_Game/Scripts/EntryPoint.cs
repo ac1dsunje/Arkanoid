@@ -27,7 +27,9 @@ namespace _Game.Scripts
             var coordinator = new Coordinator(_cam.Width, _blockSize, _borderWidth);
 
             _bordersSpawner.Construct(_bordersSpawnerConfig, coordinator.BorderCenterX, _cam.Height);
-            _blocksSpawner.Construct(_blockPrefabs, coordinator.BlockPairs, _cam.Height, _blockSize);
+
+            BlockFactory blockFactory = new(_blockPrefabs, _blockSize);
+            _blocksSpawner.Construct(coordinator.BlockPairs, _cam.Height, _blockSize, blockFactory);
             
             _platform.Construct(_cam.Height);
             
