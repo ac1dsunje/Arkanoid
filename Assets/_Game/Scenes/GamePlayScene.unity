@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 2383438555425982818, guid: 4165bf8fc3c376a478d2038bcf2c2056, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 52f3efe6e94ebb84cab24659ad07585d, type: 2}
     - target: {fileID: 4711241146427267637, guid: 4165bf8fc3c376a478d2038bcf2c2056, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -170,10 +174,6 @@ PrefabInstance:
     - target: {fileID: 4711241146427267637, guid: 4165bf8fc3c376a478d2038bcf2c2056, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8956268623442948023, guid: 4165bf8fc3c376a478d2038bcf2c2056, type: 3}
-      propertyPath: _moveSpeed
-      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -441,6 +441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21aefbb135f244cba2f6a40adbadc5de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Blocks.BlocksSpawner
+  _rows: 4
 --- !u!1 &990206343
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92eff56d067d4c3bbb81c0041c610991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.EntryPoint
-  _cameraController: {fileID: 519420033}
+  _cam: {fileID: 519420033}
   _bordersSpawnerConfig: {fileID: 11400000, guid: 320a20a632ce5a24186e470d7e5ed013, type: 2}
   _bordersSpawner: {fileID: 440148522}
   _borderWidth: 0.2
